@@ -1,0 +1,298 @@
+<div class="container-fluid loginWrapper" ng-controller="loginValidControl">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-xs-10 col-sm-offset-3 col-md-offset-4 col-xs-offset-1">
+					<div class="login-box clearfix">
+						<div class="page-icon">
+							<a href="#"><span class="glyphicon glyphicon-question-sign" id="glyphUser"></span></a>
+			       		</div>
+						<div class="loginUserLogo">
+							<a href=""><img src="images/cts-logo.png" alt="no_logo"/></a>
+						</div>
+						<span class="marker"></span>
+						<!--Signup Div starts-->
+						<div class="login-form" data-ng-if="signUpFlag">
+							<form name="loginForm" class="signUp" ng-submit="signUp(loginForm.$valid)" novalidate>
+								<!-- name-->
+								<div class="labelTop">
+									<label id="labelLeft" for="name"><span class="redSpan">*</span>Name:</label>
+									<input type="text" placeholder="Name" id="name" class="input-field" name="userLog" ng-model="loginUser.userLogName" ng-pattern="loginUser.logPattern" ng-change="loginChange(loginUser.userLogName)" required autofocus/> 
+									<label data-ng-class="{'loginClass': !loginFlag}" class="redSpan">
+										<span class="error" data-ng-show="loginForm.userLog.$dirty && loginForm.userLog.$invalid">
+											<span class="formwidth" data-ng-show="loginForm.userLog.$error.required">Username is required.!</span>
+											<span class="formwidth" data-ng-show="loginForm.userLog.$error.pattern">enter alphabet only!</span>
+										</span>
+										<span class="formwidth" data-ng-show="loginForm.userLog.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.userLog.$touched">Username required!!!</span>
+										</span>
+									</label>
+								</div>
+								<!--email-->
+								<div class="labelTop">
+									<label id="labelLeft" for="emailId2"><span class="redSpan">*</span>Email:</label>
+									<input type="email" placeholder="E-mail" id="emailId2" name="emailLog" class="input-field" ng-model="loginUser.emailLogName" ng-pattern="loginUser.emailPattern" ng-change="emailChange(loginUser.emailLogName)" required/> 
+									<label data-ng-class="{'emailClass': !emailFlag}" class="redSpan">
+										<span class="formwidth" data-ng-show="loginForm.emailLog.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.emailLog.$touched">Email required!!!</span>
+										</span>
+										<span class="error" data-ng-show="loginForm.emailLog.$dirty && loginForm.emailLog.$invalid">
+											<span class="formwidth" data-ng-show="loginForm.emailLog.$error.required">Email is required.!</span>
+											<span class="formwidth" data-ng-show="loginForm.emailLog.$error.pattern">enter proper email only!</span>
+										</span>
+									</label>
+								</div>
+								
+								<!--user name-->
+								<div class="labelTop">
+									<label id="labelLeft" for="username"><span class="redSpan">*</span>User Name:</label>
+									<input type="text" placeholder="UserName" id="username" class="input-field" name="user" ng-model="loginUser.userName" ng-pattern="loginUser.userPattern" ng-change="loginChange(loginUser.userLogName)" required autofocus/> 
+									<label data-ng-class="{'loginClass': !userFlag}" class="redSpan">
+										<span class="error" data-ng-show="loginForm.user.$dirty && loginForm.user.$invalid">
+											<span class="formwidth" data-ng-show="loginForm.user.$error.required">Username is required.!</span>
+											<span class="formwidth" data-ng-show="loginForm.user.$error.pattern">Name should start with alphabet</span>
+										</span>
+										<span class="formwidth" data-ng-show="loginForm.user.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.user.$touched">Username required!!!</span>
+										</span>
+									</label>
+								</div>
+								<!--password-->
+								<div class="labelTop">
+									<label id="labelLeft" for="passwordId"><span class="redSpan">*</span>Password:</label>
+									<input class="input-field" id="passwordId" type="password" placeholder="password" name="password" ng-minlength=6 required="" data-ng-model="loginUser.password" />
+									<label data-ng-class="{'passwordClass': !passwordFlag}" class="redSpan">
+										<span class="formwidth" data-ng-show="loginForm.password.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.password.$touched">password required!!!</span>
+										</span>
+										<span class="error" data-ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+											<span class="formwidth" data-ng-show="loginForm.password.$error.required" >This is required.</span>
+											<span class="formwidth" data-ng-show="loginForm.password.$error.minlength">Password should have atleast 6 characters !!!</span>
+										</span>
+									</label>
+								</div>
+								<!--confirm password-->
+								<div class="labelTop">
+									<label id="labelLeft" for="confirmId"><span class="redSpan">*</span>Confirm Password:</label>
+									<input class="input-field" id="confirmId" type="password" placeholder="confirm password" name="passwordCompare" required="" data-ng-model="loginUser.passwordCompare" data-ng-match="loginUser.password" />
+									<label data-ng-class="{'confirmClass': !passwordConfirmFlag}" class="redSpan">
+										<span class="error formwidth" data-ng-show="loginForm.passwordCompare.$dirty && loginForm.passwordCompare.$invalid">
+											<span data-ng-show="loginForm.passwordCompare.$error.required">This is required.</span>
+											<span data-ng-show="loginForm.passwordCompare.$error.match">Passwords do not match.</span>
+										</span>
+										<span class="formwidth" data-ng-show="loginForm.passwordCompare.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.passwordCompare.$touched">password required!!!</span>
+										</span>
+									</label>
+								</div>
+								<!--date of birth-->
+								<div class="labelTop">
+									<label id="labelLeft" for="dobId"><span class="redSpan">*</span>Date-Of-Birth:</label>
+									<input type="date" id="dobId" placeholder="Date Of Birth" name="dob" class="input-field date-field" data-ng-model="loginUser.dobValue" min="1950-01-01" max="1995-12-31" required/>
+									<label data-ng-class="{'passwordClass': !dobFlag}" class="redSpan">
+										 <span class="error formwidth" data-ng-show="loginForm.dob.$error.date">Not a valid date!</span>
+										 <span class="formwidth" data-ng-show="loginForm.dob.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.dob.$touched">date required!!!</span>
+										</span>
+									</label>
+								</div>
+								<!--country-->
+								<div class="labelTop">
+									<label id="labelLeft" for="countryId"><span class="redSpan">*</span>Country:</label>
+									<select id="countryId" name="country">
+										<option value="" disabled selected>select</option>
+										<option value="India">India</option>
+										<option value="USA">USA</option>
+										<option value="UK">UK</option>
+									</select>
+									<label data-ng-class="{'passwordClass': !dobFlag}" class="redSpan">
+										 <span class="formwidth" data-ng-show="loginForm.country.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.country.$touched">date required!!!</span>
+										</span>
+									</label>
+								</div>
+								<!--security question-->
+								<div class="labelTop">
+									<label id="labelLeft" for="securityId"><span class="redSpan">*</span>Security Question:</label>
+									<select id="securityId">
+										<option value="securityQuestion">Who is Your Favourite Hero?</option>
+									</select>
+								</div>
+								<!--security Answer-->
+								<div class="labelTop">
+									<label id="labelLeft" for="answerId"><span class="redSpan">*</span>Security Answer:</label>
+									<input type="text" placeholder="security Answer" id="answerId" name="answer" class="input-field" data-ng-model="loginUser.securityAnswer" data-ng-pattern="loginUser.logPattern" required/> 
+									<label ng-class="{'loginClass': !securityFlag}" class="redSpan">
+										<span class="error" data-ng-show="loginForm.answer.$dirty && loginForm.answer.$invalid">
+											<span class="formwidth" data-ng-show="loginForm.answer.$error.required">security answer is required.!</span>
+											<span class="formwidth" data-ng-show="loginForm.answer.$error.pattern">enter alphabet only!</span>
+										</span>
+										<span class="formwidth" data-ng-show="loginForm.answer.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.answer.$touched">Username required!!!</span>
+										</span>
+									</label>
+								</div>
+								<span class="formwidth" ng-if="userError">
+											<span class="formWidth" ng-model="userMessage">{{userMessage}}</span>
+								</span>
+								<div class="loginButton">
+									<input type="submit" class="btn" value="Sign Up" ng-disabled="loginForm.$invalid"/>
+								</div>
+							</form>
+							<div class="login-links"> 
+								<a href="javascript:void(0)" data-ng-click="logInLink()">Already have an account? <strong>Sign In</strong></a>
+							</div>      		
+						</div>
+						<!--Signup Div Ends-->
+						<!--login form starts-->
+						<div class="login-form" data-ng-if="loginFormFlag">
+							<form name="myForm" novalidate ng-submit="logIn(myForm.$valid)">
+								<p data-ng-class="{'invalidClass': invalidFlag}" class="redSpan">invalid username or password</p>
+								
+								
+								<!--user name-->
+								<div class="labelTop">
+									<label id="labelLeft" for="username2"><span class="redSpan">*</span>User Name:</label>
+									<input type="text" placeholder="UserName" id="username2" class="input-field" name="user2" ng-model="loginUser.userName" ng-pattern="loginUser.userPattern" ng-change="loginChange(loginUser.userLogName)" required autofocus/> 
+									<label data-ng-class="{'loginClass': !userFlag}" class="redSpan">
+										<span class="error" data-ng-show="loginForm.user2.$dirty && loginForm.user2.$invalid">
+											<span class="formwidth" data-ng-show="loginForm.user2.$error.required">Username is required.!</span>
+											<span class="formwidth" data-ng-show="loginForm.user2.$error.pattern">Name should start with alphabet</span>
+										</span>
+										<span class="formwidth" data-ng-show="loginForm.user2.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.user2.$touched">Username required!!!</span>
+										</span>
+									</label>
+								</div>
+
+								<!--password-->
+								<div class="labelTop">
+									<label id="labelLeft" for="passwordId2"><span class="redSpan">*</span>password:</label>
+									<input class="input-field" id="passwordId2"  type="password" placeholder="password" name="password2"  data-ng-model="loginUser.password" ng-minlength=6 required/>
+									<label data-ng-class="{'passwordClass': !passwordFlag}" class="redSpan">
+										<span class="error" data-ng-show="myForm.password2.$dirty && myForm.password2.$invalid">
+											<span class="formwidth" data-ng-show="myForm.password2.$error.required" >password is required.</span>
+											<span class="formwidth" data-ng-show="myForm.password2.$error.minlength">Password should have atleast 6 characters !!!</span>
+										</span>
+										<span class="formwidth" data-ng-show="myForm.password2.$pristine">
+											<span class="formwidth" data-ng-show="myForm.password2.$touched">Password required !!!</span>
+										</span>
+									</label>
+								</div>
+								<div class="loginButton"><input type="submit" class="btn" value="Login" data-ng-disabled="myForm.$invalid" ng-click="login()"/></div> 
+							</form>	
+							<div class="login-links"> 
+								<a href="javascript:void(0)" ng-click="forgot()">Forgot password?</a>
+								<a href="javascript:void(0)" data-ng-click="signUpLink()">Don't have an account?<strong>Sign Up</strong></a>
+							</div>      		
+						</div>
+						<!--login form ends--> 		
+						<!--forgot form1 starts-->
+						<div class="login-form" data-ng-if="forgotForm1Flag">
+							<form name="resetForm1">
+			        			<p>Enter your email address below and we'll send a special reset password link to your inbox.</p>
+								<!--email-->
+								<div class="labelTop">
+									<label id="labelLeft" for="emailId3"><span class="redSpan">*</span>Email:</label>
+									<input type="email" placeholder="E-mail" id="emailId3" name="emailLog3" class="input-field" data-ng-model="loginUser.emailLogName" data-ng-pattern="loginUser.emailPattern" autofocus required/> 
+									<label data-ng-class="{'emailClass': !emailFlag}" class="redSpan">
+										<span class="error" data-ng-show="resetForm1.emailLog3.$dirty && resetForm1.emailLog3.$invalid">
+											<span class="formwidth" data-ng-show="resetForm1.emailLog3.$error.required">Email is required.!</span>
+											<span class="formwidth" data-ng-show="resetForm1.emailLog3.$error.pattern">enter proper email only!</span>
+										</span>
+										<span class="formwidth" data-ng-show="resetForm1.emailLog3.$pristine">
+											<span class="formwidth" data-ng-show="resetForm1.emailLog3.$touched">Email required !!!</span>
+										</span>
+									</label>
+								</div>	
+								
+								<!--date of birth-->
+								<div class="labelTop">
+									<label id="labelLeft" for="dobId3"><span class="redSpan">*</span>Date-Of-Birth:</label>
+									<input type="date" id="dobId3" placeholder="Date Of Birth" name="dob3" class="input-field date-field" data-ng-model="loginUser.dobValue" min="1950-01-01" max="1995-12-31" required/>
+									<label data-ng-class="{'passwordClass': !dobFlag}" class="redSpan">
+										 <span class="error formwidth" data-ng-show="loginForm.dob3.$error.date">Not a valid date!</span>
+										 <span class="formwidth" data-ng-show="loginForm.dob3.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.dob3.$touched">date required!!!</span>
+										</span>
+									</label>
+								</div>
+								
+								<!--security question-->
+								<div class="labelTop">
+									<label id="labelLeft" for="securityId3"><span class="redSpan">*</span>Security Question:</label>
+									<select id="securityId3">
+										<option value="securityQuestion">Who is Your Favourite Hero?</option>
+									</select>
+								</div>
+								
+								<!--security Answer-->
+								<div class="labelTop">
+									<label id="labelLeft" for="answerId3"><span class="redSpan">*</span>Security Answer:</label>
+									<input type="text" placeholder="security Answer" id="answerId3" name="answer3" class="input-field" data-ng-model="loginUser.securityAnswer" data-ng-pattern="loginUser.logPattern" required/> 
+									<label ng-class="{'loginClass': !securityFlag}" class="redSpan">
+										<span class="error" data-ng-show="loginForm.answer3.$dirty && loginForm.answer3.$invalid">
+											<span class="formwidth" data-ng-show="loginForm.answer3.$error.required">security answer is required.!</span>
+											<span class="formwidth" data-ng-show="loginForm.answer3.$error.pattern">enter alphabet only!</span>
+										</span>
+										<span class="formwidth" data-ng-show="loginForm.answer3.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.answer3.$touched">Username required!!!</span>
+										</span>
+									</label>
+								</div>
+								
+						   		<div class="loginButton btn-reset">
+									<input type="submit" class="btn reset" value="SUBMIT" ng-click="submit()" ng-disabled="resetForm1.$invalid"/>
+								</div>
+							</form>
+							<div class="login-links"> 
+								<a href="javascript:void(0)" data-ng-click="signIn()">Already have an account? <strong>Sign In</strong></a>
+							</div>      		
+						</div>
+						<!--forgot form1 ends--> 
+						
+						<!--forgot form2 starts-->
+						<div class="login-form"  data-ng-if="forgotForm2Flag">
+							<form name="resetForm2">
+			        			<p>Enter your email address below and we'll send a special reset password link to your inbox.</p>
+								<!--email-->
+								<div class="labelTop">
+									<label id="labelLeft" for="emailId1">Email:</label>
+									<input type="email" placeholder="E-mail" id="emailId1" name="emailLog2" class="input-field" data-ng-model="loginUser.emailLogName" data-ng-pattern="loginUser.emailPattern" autofocus required/> 
+									<label data-ng-class="{'emailClass': !emailFlag}" class="redSpan">
+										<span class="error" data-ng-show="resetForm2.emailLog2.$dirty && resetForm2.emailLog2.$invalid">
+											<span class="formwidth" data-ng-show="resetForm2.emailLog2.$error.required">Email is required.!</span>
+											<span class="formwidth" data-ng-show="resetForm2.emailLog2.$error.pattern">enter proper email only!</span>
+										</span>
+										<span class="formwidth" data-ng-show="resetForm2.emailLog2.$pristine">
+											<span class="formwidth" data-ng-show="resetForm2.emailLog2.$touched">Email required !!!</span>
+										</span>
+									</label>
+								</div>
+								<!--password-->
+								<div class="labelTop">
+									<label id="labelLeft" for="passwordId"><span class="redSpan">*</span>Password:</label>
+									<input class="input-field" id="passwordId" type="password" placeholder="password" name="password" ng-minlength=6 required="" data-ng-model="loginUser.password" />
+									<label data-ng-class="{'passwordClass': !passwordFlag}"  class="redSpan">
+										<span class="formwidth" data-ng-show="loginForm.password.$pristine">
+											<span class="formwidth" data-ng-show="loginForm.password.$touched">password required!!!</span>
+										</span>
+										<span class="error" data-ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+											<span class="formwidth" data-ng-show="loginForm.password.$error.required" >This is required.</span>
+											<span class="formwidth" data-ng-show="loginForm.password.$error.minlength">Password should have atleast 6 characters !!!</span>
+										</span>
+									</label>
+								</div>								
+								
+								
+						   		<div class="loginButton btn-reset">
+									<input type="submit" class="btn reset" value="Reset password" ng-disabled="resetForm2.$invalid"/>
+								</div>
+							</form>
+							<div class="login-links"> 
+								<a href="javascript:void(0)" data-ng-click="signIn()">Already have an account? <strong>Sign In</strong></a>
+							</div>      		
+						</div> 
+						<!--forgot form2 ends-->	        	
+					</div>
+				</div>
+			</div>
+		</div>

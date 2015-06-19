@@ -1,0 +1,81 @@
+
+		<div class="container-fluid bs_fluidcontainer">
+			<art-header></art-header>
+			<div class="videoslist" class="col-xs-4" >
+				<div class="videosmenu">
+					<nav class="navbar navbar-default bs_menunav">
+						<div class="collapse navbar-collapse bs_navcol" id="bs-example-navbar-collapse-1">
+						  <ul class="nav navbar-nav bs_navlink1">			
+							<li class="dropdown">
+							  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">DateAdded <span class="caret bs_ddimage"></span></a>
+							  <ul class="dropdown-menu bs_ddmenu" role="menu">
+								<li><a href="" ng-click="predicate='created_date' ; reverse=true">Newest Date</a></li>
+								<li><a href="" ng-click="predicate='created_date' ; reverse=false">OldestDate</a></li>
+							  </ul>
+							</li>
+						  </ul>
+						  <ul class="nav navbar-nav bs_navlink1">
+							
+							<li class="dropdown">
+							  <a href="" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false">Category <span class="caret bs_ddimage"></span></a>
+							  <ul class="dropdown-menu bs_ddmenu" role="menu">
+								<li><a href="" ng-click="categry='Digital Business'" >Digital Business</a></li>
+								<li><a href="" ng-click="categry='Code Halos'">Code Halos</a></li>
+								<li><a href="" ng-click="categry='SMAC Stack'">SMAC Stack</a></li>
+								<li><a href="" ng-click="categry=''">none</a></li>
+								<li><a href="" ng-click="categry='all'">all</a></li>
+
+							  </ul>
+							</li>
+						  </ul>
+						  <span class="glyphicon glyphicon-th gridimage" ng-class="{'clickedview':clicked=='1'}" aria-hidden="true" ng-click="list='no' ; clicked='1'"></span>
+						  
+						  <span class="glyphicon glyphicon-th-list selectlistimage " ng-class="{'clickedview':clicked=='0'}" aria-hidden="true" ng-click="list='yes' ; clicked='0'"></span>
+						</div>
+					</nav>
+				</div>
+			
+				<!--<div class="yvideos" ng-repeat="video in videosdata">
+					<img ng-src={{video.thumbnail}} />
+					<a href="" ng-click="getImageSource(video)">{{video.title}}}</a>
+					<p>...  |  2days ago</p>
+				</div>!-->
+				<div ng-class="{'listview':list=='yes','yvideos':list!='yes'}" ng-repeat="video in videosdata | categoryBased : categry | orderBy: predicate : reverse | filter:search:strict" >
+					<img ng-src={{video.thumbnail}} ng-click="scrollTo('displayvideoid');getImageSource(video)"/>
+					<div class="imagContent">
+						<div class="ellipsify">
+						    <div class="pre-dots"></div>
+						    <div class="dots">&hellip;</div>
+								<a href="" ng-click="scrollTo('displayvideoid');getImageSource(video)">{{video.title}}</a>
+							<span class="hidedots1"></span>
+						    <div class="hidedots2"></div>
+						</div>
+						<p>  |  {{getDate1(video)}} ago</p>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				
+			</div>
+		
+			<div class="displayvideo" class="col-xs-8" id="displayvideoid" >
+				<h2>{{videoObj.title}}</h2>
+				<p class="tagline">#{{videoObj.theme_name}}</p>
+				<iframe width="95%" height="320px"
+						ng-src="{{videoUrl}}">
+				</iframe>
+				<div class="aboutvideoimages">
+					<!--<img src="images/info @2x.png" alt="information" class="info" ng-click="toggleInfo()"/>!-->
+					<span class="glyphicon glyphicon-info-sign infom info" aria-hidden="true" ng-click="toggleInfo()" ng-class="{'clickedview':infoclicked=='1'}"></span> 
+					<span class="glyphicon glyphicon-star bookm infom" aria-hidden="true" ng-model="videoObj.video_id" book-markvideo></span>
+					<span class="glyphicon glyphicon-share share infom" aria-hidden="true"></span>
+				</div>
+				<div class="videodescription" ng-show="showinfo">
+					<p>{{videoObj.description}}
+					</p>
+					
+				</div>
+			</div>
+			
+			<art-footer></art-footer>
+		</div>

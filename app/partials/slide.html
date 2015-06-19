@@ -1,0 +1,28 @@
+<div class="slider">
+	<div class="slide" ng-repeat="image in images |limitTo: 5" ng-show="image.visible" >
+		<h2><span>FEATURED ARTICLE</span><span class="view1_article_count"><span ng-click="prev()"> < </span> <span> {{currentIndex+1}}/5 </span> <span ng-click="next()"> > </span></h2>
+		<div class="view1_carousel" ng-click="loadArticleContent(image)">
+			<p class="view1_carousel_detail" ng-click="loadArticleContent(image)">{{image["ArticleTitle"]}}</p>
+		</div>
+		<div class="view1_icon">
+			<ul>
+				<li class="l1"><a href="javascript:void(0)" class="view1_dept1"><img src="images/dept1.png" class="image-responsive"/></a></li>
+				<li class="l2"><a href="javascript:void(0)" class="view1_dept2"><img src="images/dept2.png"/></a></li>
+				<li class="l3"><a href="javascript:void(0)" class="view1_dept3"><img src="images/dept3.png"/></a></li>
+			</ul>
+			<div class="view1_vertical_details">
+				<div class="view1_vertical_details_descrption">
+					<p>{{image["Industries"]}}</p>
+					<p>{{image["Themes"]}}</p>
+				</div>
+				<div class="view1_vertical_details_share">
+					<a href="javascript:void(0)"><img src="images/fav-view1.png" alt="addtofavourite" title="addtofavourite"></a>
+					<a href="javascript:void(0)"><img src="images/share-view1.png" alt="bookamrk" title="bookmark"></a>
+				</div>
+				<div class="clear"></div>	
+				
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>

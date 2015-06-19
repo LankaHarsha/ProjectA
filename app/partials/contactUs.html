@@ -1,0 +1,99 @@
+<!--Main container for contactUs view-->
+	<div class="container-fluid" id="contactUs_Container" ng-controller="validateCtrl">
+		<art-header></art-header>
+		<!--contact us block-->
+		<div id="contactUs">
+			<img src="images/call-85-85.png" alt="no_logo_found" id="contactUs_Image">
+			<div id="theory">
+				<h2>CONTACT US</h2>
+				<p>How can we help you & Get in touch to know more about the services we offer. </p>
+			</div>
+			<!--adding contacts link-->
+			<a href=""><span class="glyphicon glyphicon-plus-sign" id="edit"  ng-show="showEditFlag" ng-click="toggleForm()"></span></a>
+			<a href=""><span class="glyphicon glyphicon-minus-sign" id="edit" ng-hide="showEditFlag" ng-click="toggleForm()"></span></a>
+			<div class="clear"></div>
+		</div>
+		
+		<!--divider-->
+		<span class="divider"></span>
+		
+		<!--offices block-->
+		<div id="offices">
+			<img src="images/office-85-85.png" alt="no_logo_found" id="offices_Image">
+			<div id="theory">
+				<h2>OFFICES</h2>
+				<p>We are located Globally.Find office locations.</p>
+			</div>
+			<!--adding offices link-->
+			<a href="#"><span class="glyphicon glyphicon-plus-sign" id="edit"></span></a>
+			<a href="#"><span class="glyphicon glyphicon-minus-sign" id="edit" style="display:none;"></span></a>
+			<div class="clear"></div>
+		</div>
+		
+		<!--divider-->
+		<span class="divider"></span>
+		
+		<!--form filling -->
+		<div ng-class="{'myClassForm': !showFormFlag}">
+			<form class="formWidth"  name="myForm" novalidate>
+				
+				<p id="leftContent">Fill the form to get in touch</p>
+				<p id="rightContent"><span class="red">*</span>Required Fields</p>
+				<div class="clear"></div>
+				
+				<!--name field-->
+				<div class="form-group col-md-12 col-sm-12">
+					<label for="userId"><span class="red" >*</span>Name:</label>
+					<input type="text" class="form-control formControl" name="user" id="userId" ng-model="contactUsUser.userName" placeholder="Name*" ng-pattern="contactUsUser.word" ng-change="change(contactUsUser.userName)" autofocus required />
+					<label ng-class="{'myClass': !initFlag}"><span style="color:red"  class="error" >
+						<span ng-show="myForm.user.$error.required || myForm.user.$pristine">Username is required.!</span>
+						<span ng-show="myForm.user.$error.pattern">enter alphabet only!</span>
+					</span></label>
+				</div>
+				
+				<!--email field-->
+				<div class="form-group col-md-12 col-sm-12">
+					<label for="emailId"><span class="red" >*</span>Email:</label>
+					<input type="email" class="form-control formControl" name="email" id="emailId" ng-model="contactUsemail.emailName" placeholder="Email*" ng-pattern="contactUsemail.pattern" ng-change="change(contactUsemail.emailName)" required>
+					<label ng-class="{'myClass': !initFlag}"><span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+						<span ng-show="myForm.email.$error.required || myForm.email.$pristine">Email is necessary.</span>
+						<span ng-show="myForm.email.$error.email">you entered Invalid email address.</span>
+						<span ng-show="myForm.email.$error.pattern">enter valid email address only!</span>
+					</span></label>
+				</div>
+			
+				<!--company field-->
+				<div class="form-group col-md-12 col-sm-12">
+					<label for="companyId">Company:</label>
+					<input type="text" class="form-control formControl" name="company" id="companyId" ng-model="companyName" placeholder="Company" ng-change="change(companyName)">
+					<label ng-class="{'myClass': !initFlag}"><span style="color:red"  ng-show="myForm.company.$dirty && myForm.company.$invalid">
+						<span ng-show="myForm.company.$error.required">companyName is required.</span>				
+					</span></label>
+				</div>
+				
+				<!--Inquiry field-->
+				<div class="form-group col-md-12 col-sm-12">
+					<label for="quali"><span class="red" >*</span>Inquiry Type:</label>
+					<select class="form-control formControl" ng-model="InquiryType" name="quali" id="quali">
+						<option value="" disabled selected>select</option>
+						<option value="1">Graduate</option>
+						<option value="2">Post Graduate</option>
+					  </select>
+				</div>
+				
+				<!--textarea field-->
+				<div class="form-group col-md-12 col-sm-12">
+					<label for="comment">How can we help you:</label>
+					<textarea class="form-control formControl" ng-model="userComment" rows="4" id="comment" placeholder="How can we help you"></textarea>
+				</div>
+				
+				<div class="col-md-12 col-sm-12  form-group">
+					<!--submit button-->
+					<div class="submitButton"><input type="submit" class="btn btn-info button" ng-disabled="myForm.$invalid" ng-click="submitForm()" value="SUBMIT"/></div>
+					<!--clear all button-->
+					<div class="resetButton"><button type="reset" class="btn btn-default button button-default" ng-click="clear()">CLEAR ALL</button></div>
+				</div>
+			</form>
+		</div>
+		<art-footer></art-footer>
+	</div>

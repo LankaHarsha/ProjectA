@@ -1,0 +1,101 @@
+
+	<div id="articleLandingwrapper" ng-controller="personCtrl">
+		<div class="">
+			 <art-header></art-header>
+			<div class="content container-fluid">
+				<div class="filter">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="content_left">
+								<span ng-click="toggle()">
+									Filter
+								</span>
+								<img  ng-click="toggle()" class="arrow-image" src="images\arrow.png"/>
+								<img class="vertical_divider"src="images\divider-line-vertical.png"/>
+								<label>Personalize</label>
+							</div>
+						</div>
+						
+						<div class="col-xs-6">
+							<div class="content_right">
+								<span>
+									Sort by most view
+								</span>
+								<img class="arrow-image" src="images\arrow.png"/>
+								<img class="grid1" src="images\1-grid.png"/>
+								<img class="grid2" src="images\2-grid.png"/>
+							</div>	
+						</div>
+						<img  src="images\divider-line.png" alt="" class="img-responsive horizontal_line">
+
+						<div ng-hide="myVar">
+							<div class="row filter_nav">
+								<div class="col-xs-3 form-group">
+									  <label for="sel1">Month:</label>
+									  <select class="form-control" id="sel1">
+										<option>Jan</option>
+										<option>Feb</option>
+										<option>Mar</option>
+										<option>Apr</option>
+									  </select>
+								</div>
+								<div class="col-xs-3 form-group">
+									  <label for="sel1">Year:</label>
+									  <select class="form-control" id="sel1">
+										<option>Jan</option>
+										<option>Feb</option>
+										<option>Mar</option>
+										<option>Apr</option>
+									  </select>
+								</div>
+								<div class="col-xs-3 form-group">
+									  <label for="sel1">Themes:</label>
+									  <select class="form-control" id="sel1">
+										<option>Code Halos</option>
+										<option>SMAC Stack</option>
+										<option>Digital Business</option>
+									  </select>
+								</div>
+								<div class="col-xs-1">
+									<button type="button" class="btn btn-primary save_button">Save</button>
+								</div>	
+								<div class="col-xs-2">	
+									<button type="button" class="btn btn-primary save_button">Reset</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+						
+				<div class="row">
+					<span  class="col-xs-3 small_imagesSection" ng-repeat="article in assets.Articles">
+						<img class="small_image" ng-src={{article.custom_AppImageMedium}} ng-click="showArticleContent(article)" alt=""/>
+						<div class="ellipsfyHead">
+							<div class="ellipsify_text">
+								<div class="pre-dotstext"></div>
+								<div class="dots_text">&hellip;</div>
+									<label class="label_class" ng-click="showArticleContent(article)">{{article.ArticleTitle}}</label>
+								<span class="hidedots1_text"></span>
+								<div class="hidedots2_text"></div>
+							</div>
+							<div class="themes_section">
+								<div class="ellipsify_text fixer">
+									<span class="pre-dotstext"></span>
+									<span class="dots_text">&hellip;</span>
+										<label class="label_class2" ng-click="showArticleContent(article)">{{article.Themes}}</label>
+									<span class="hidedots1_text"></span>
+									<span class="hidedots2_text"></span>
+								</div>
+								<!--
+								<span class="glyphicon glyphicon-star star_image" ng-class="isArticleBookMarked(art) ? 'changeYellow' : 'changeBlack'" ng-click="bookMark(art)"></span>
+								-->
+								<span ng-model="article" class="glyphicon glyphicon-star star_image readLaterJQ" book-marker></span>
+							</div>
+						</div>
+					</span>
+				</div>
+		    </div>
+		    <art-footer></art-footer>
+		</div>	
+	</div>
+

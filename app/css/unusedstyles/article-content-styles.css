@@ -1,0 +1,422 @@
+*
+{
+	margin:0;
+	padding:0;
+}
+img
+{
+	max-width: 100%;
+	height:auto;
+}
+.clearPadding
+{
+	padding:0 0;
+}
+.clearMargin
+{
+	margin:0 0;
+}
+.clear
+{
+	clear:both;
+	float:none;
+}
+#articleContentWrapper
+{
+	margin-bottom:65px;
+}
+.articleContentHeader
+{
+	padding:0px 15px 10px 15px;
+	height:60px;
+	background-color:white;
+	border-bottom:1px solid #E0E0D1;
+	box-shadow: 0 5px 5px -5px #333;
+	z-index: 2;
+}
+.articleHeaderRightCol
+{
+	overflow:hidden;
+}
+.articleHeaderLeftCol
+{
+	padding-top:5px;
+}
+.articleHeaderLeftCol .logoText
+{
+	font-size:1.50em;
+	font-weight: bold;
+	font-color:black;
+}
+.starMark
+{
+	display:inline-block;
+	float:right;
+	height:50px;
+	width:7.675438596491228%;
+	background:url("../images/bookmarkband-70-100.png");
+	background-size: 100% 100%;
+}
+.search
+{
+	float:right;
+	outline-style: none;
+	margin-top:10px;
+	padding:0px 28px 0px 5px;
+	width:50.92982456140351%;
+	height:36px;
+	border:none;
+	margin-right:5px;
+	background:url("../images/search-bar.png");
+	background-size:100% 100%;
+}
+.articleContentStickyHeader
+{
+	padding:5px 15px;
+	height:100px;
+	top:60px;
+	background-color:#f4f4f4;
+	box-shadow: 0 5px 5px -5px #333;
+	overflow:hidden;
+}
+.articleText
+{
+	font-size:1.2em;
+	display:block;
+	font-weight:bold;
+}
+
+.articleTextCaption
+{
+	color:#7C7C7C;
+	font-size:0.725em;
+}
+.articleContentTextContainer
+{
+	background-color:#f4f4f4;
+	margin-top:160px;
+	padding:0 15px;
+	overflow:hidden;
+	table-layout: fixed;
+}
+
+.articleContentTextContainer .articleOptionBox
+{
+	position:relative;
+	width:28.24935732647815%;
+	display:table-cell;
+	vertical-align:top;
+	1*float:left;
+
+}
+.articleContentTextContainer .heroImage
+{
+	width:68.89460154241645%;
+	margin-right:2%;
+	display: table-cell;
+	1*float:left;
+}
+.articleOptionBox
+{
+	padding-left:2px;
+}
+/*
+.articleOptionBox .aPlus,.articleOptionBox .aMinus,.articleOptionBox .print
+{
+
+	display:inline-block;
+	border:1px solid grey;
+	height:48px;
+	width:45px;
+
+}
+*/
+.articleOptionBox .aPlus,.articleOptionBox .aMinus,.articleOptionBox .print
+{
+	padding:8px;
+	cursor:pointer;
+	font-size:2.3em;
+	border:1px solid grey;
+}
+/*
+.articleOptionBox .aMinus
+{
+	padding:5px;
+	cursor:pointer;
+}
+.articleOptionBox .print
+{
+	padding:5px;
+	cursor:pointer;
+}
+*/
+.subOptionBox
+{
+	1vertical-align: bottom;
+	width:100%;
+	position:absolute;
+	list-style-type: none;
+	bottom:0;
+	margin-bottom:0;
+}
+.subOptionBox li
+{
+	border-bottom:1px solid grey;
+	padding:5px 0;
+	font-size:1.5em;
+	cursor:pointer;
+}
+.subOptionBox li:hover
+{
+	background-color:grey;
+	color:white;
+	font-style:bold;
+}
+.subOptionBox li span
+{
+	display:inline-block;
+	background:url("../images/spritesubbox1.png") no-repeat;
+	padding-left:40px;
+	height:26px;
+}
+.subOptionBox li .comment
+{
+	background-position:0 0;
+	
+}
+.subOptionBox li .share
+{
+
+	background-position:0 -46px;
+	
+
+}
+.subOptionBox li .readLater
+{
+	background-position:0 -90px;
+	
+}
+.heroImage
+{
+	width:100%;
+}
+.articleData
+{
+	background-color:#f4f4f4;
+	padding:0 15px;
+}
+.articleData .articleHeading
+{
+	margin:0 0;
+	padding:10px 0;
+	color:#6DB33F;
+}
+.articleData p
+{
+	padding-bottom:10px;
+	margin:0;
+}
+.articleData p:last-child
+{
+	padding-bottom:25px;
+	
+}
+.articleData h5
+{
+	font-weight:bold;
+}
+.commentsContainer
+{
+	background-color:#f4f4f4;
+	padding:0 15px;
+}
+.commentBox
+{
+	border-top:1px solid grey;
+}
+.commentBox .post
+{
+	float:left;
+	font-weight:bold;
+	background-color:#f4f4f4;
+	display:inline-block;
+	margin-top:-10px;
+}
+.commentBox .top
+{
+	float:right;
+	font-weight:bold;
+	background-color:#f4f4f4;
+	color:#54B6F3;
+	display:inline-block;
+	margin-top:-10px;
+	cursor:pointer;
+
+}
+.commentBox .commentUI
+{
+	padding-top:20px;
+}
+.commentUI  .person
+{
+	border-radius:50px;
+	width:100%;
+	height:auto;
+}
+.commentUI .postComment
+{
+	display:inline-block;
+	border:2px solid #54B6F3;
+	padding:10px;
+	color:#54B6F3;
+	font-weight:bold;
+	text-decoration:none;
+}
+.commentUI .postComment:hover
+{
+	color:#3366FF;
+	border:2px solid #3366FF;
+}
+.commentUI textarea
+{
+	resize:none;
+}
+.heroImage img
+{
+	width:100%;
+}
+.userComments .comment
+{
+	padding:10px 0;
+	font-size:0.9em;
+	color:#54B6F3;
+}
+.articleText a
+{
+	cursor:pointer;
+}
+
+/*
+.userComments
+{
+	padding:10px 45px;
+	font-size:0.8em;
+	color:#54B6F3;
+}
+
+@media(min-width: 768px){	
+	.subOptionBox
+	{
+		margin-top:53.5%;
+
+	}
+}
+@media(min-width: 1024px){	
+	.subOptionBox
+	{
+		margin-top:74.5%;
+	}
+}
+*/
+.footerMenu li
+{
+	cursor:pointer;
+}
+.subOptionBox li span.bookMarkStar
+{
+	cursor:pointer;
+	background:url("");
+	padding:0 4px 0 2px;
+}
+.changeYellow
+{
+	color:#FF9933;
+}
+.changeBlack
+{
+	color:black;
+}
+/******************CSS ADDED FOR VIDEO STYLES @ BOOKMARKING****************/
+.changeWhite
+{
+	color:white;
+	border-color:white;
+}
+.aboutvideoimages .changeYellow{
+	color:#FF9933;
+	border-color:#FF9933;
+}
+/*********************CSS END***********************************************/
+
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+ 
+@media print {
+    body * {
+        visibility:hidden;
+    }
+    #printSection, #printSection * {
+        visibility:visible;
+    }
+    #printSection {
+        position:absolute;
+        left:0;
+        top:0;
+    }
+}
+
+
+/**Added styles for header template**/
+.searchComponent
+{
+	padding-right:5%;
+}
+.sidebar-search{
+padding: 10px;
+}
+.sidebar-search > .form-group{
+margin-bottom: 0;
+}
+#search{
+outline: none !important;
+}
+/*
+.articleBack
+{
+	float:right;
+	font-size:1.5em;
+	display:block;
+	position:absolute;
+	bottom:0;
+}
+.back_info_col
+{
+	position:relative;
+
+}
+*/
+.articleBack
+{
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-left: 5%;
+  position: absolute;
+  right: 15px;
+  cursor:pointer;
+  top: 50px;
+  text-decoration:none;
+  color:blue;
+  font-weight:bold;
+}
+.articleInfoSign
+{
+	font-size:1.5em;
+	float:right;
+}
+.back_info_col
+{
+	position:relative;
+}

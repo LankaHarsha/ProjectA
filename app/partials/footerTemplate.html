@@ -1,0 +1,18 @@
+<footer class="index_container navbar-fixed-bottom">
+	<div class="container-fluid alignCenter">
+		<ul class="nav navbar-nav custom-nav footerMenu" ng-controller="navigationController">
+		<!--
+			<li><a ui-sref="/home" class="home_icon" ng-click="changeColor='1'" ng-class="{'home_icon_ng' : changeColor=='1'}" ></a></li>
+			<li><a ui-sref="/articleLanding" class="article_icon" ng-click="changeColor=2" ng-class="{'article_icon_ng' : changeColor=='2'}" ></a></li>
+			<li><a ui-sref="/videos" class="videos_icon" ng-click="changeColor='3'" ng-class="{'videos_icon_ng' : changeColor=='3'}" ></a></li>
+			<li><a ui-sref="/contactUs" class="connect_icon" ng-model="changeColor='4'" ng-class="{'connect_icon_ng' : changeColor=='4'}" ></a></li>
+		-->
+			<li><a ui-sref="/home" class="home_icon" ng-class="{home_icon_ng:isActive('/home')}"></a></li>
+			<li><a ui-sref="/articleLanding" class="article_icon" ng-class="{article_icon_ng:isActive('/articleLanding')}"></a></li>
+			<li><a ui-sref="/videos" class="videos_icon" ng-class="{videos_icon_ng:isActive('/videos')}"></a></li>
+			<li><a ui-sref="/contactUs" class="connect_icon" ng-class="{connect_icon_ng:isActive('/contactUs')}"></a></li>
+			<li><a ui-sref="/model" class="setting_icon" ng-class="{setting_icon_ng:isActive('/model')}" ng-click="showModel()"></a></li>
+
+		</ul>
+	</div>
+</footer>

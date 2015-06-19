@@ -1,0 +1,91 @@
+
+    <!--Wrapper for article Content-->
+    <div id="wrapper" ng-controller="articleContentController">
+	    <div class="headerContainer">
+		    <div class="container">
+		        <art-header></art-header>
+		        <div class="articleContentStickyHeader navbar-fixed-top">
+		          <div class="row">
+		              <div class="col-xs-12 col-sm-6 col-md-8">
+		                <span class="articleText" ng-model="articleCaption" ng-bind-html="articleCaption|keepDots:100"></span>
+		                <span class="articleTextCaption" ng-model="Industries">{{Industries}}</span>
+		              </div>
+		              <div class="col-xs-6 col-md-4 back_info_col">
+
+		              	<a href="javascript:void(0)" ng-click="goBack()" class="glyphicon glyphicon-arrow-left articleBack" title="Navigate to back" aria-hidden="true"></a>
+		               	<span class="articleInfoSign glyphicon glyphicon-info-sign" aria-hidden="true"></span> 
+		               	<span class="clear"></span>
+		              </div>
+		          </div>
+		        </div>
+	       </div>
+	    </div>
+	    <div id="articleContentWrapper">
+	    	<div class="container-fluid clearPadding">
+		     	<div class="articleContentTextContainer">
+			        <div class="articleImageHolder">
+			        	<div class="heroImage">
+			           		<img class="bigImage" ng-model="custom_AppImageBig" ng-src="{{custom_AppImageBig}}" zoomer alt="hero_image"/>
+			           	</div>
+			           <div class="articleOptionBox">
+			           		<div class="topOptionBox">
+						        <span class="glyphicon glyphicon-zoom-in aPlus" aria-hidden="true" zoom-plus></span>
+						        <span class="glyphicon glyphicon-zoom-out aMinus" aria-hidden="true" zoom-minus></span>
+						        <span class="glyphicon glyphicon-print print" aria-hidden="true" print-page></span>
+						    </div>
+					        <ul class="subOptionBox">
+				            	<li><span class="glyphicon glyphicon-comment bookMarkStar" aria-hidden="true"></span>Comment</li>
+				            	<li><span class="glyphicon glyphicon-share bookMarkStar" aria-hidden="true"></span>Share</li>
+				            	<!--<li ng-click="bookMark(article)"><span ng-class="isArticleBookMarked(article) ? 'changeYellow' : 'changeBlack'" ng-model="isArticleBookMarked" class="glyphicon glyphicon-star bookMarkStar" aria-hidden="true"></span>Read Later</li>-->
+				            	<li ng-model="article" book-marker><span class="glyphicon glyphicon-star bookMarkStar readLaterJQ" aria-hidden="true"></span>Read Later</li>
+				            	<!--
+				            	<li><span class="readLater" ng-click="bookMark()">Read Later</span></li>
+				            	-->
+				        	</ul>
+			       		</div>
+			       		<div class="clear">
+			       		</div>
+			        </div>  
+		     	</div>
+		     	<div class="articleData">
+		     		<h4 class="articleHeading">Modern manfacturers and retailers take heart: The elusive Perfect Order Index is within reach for  anyone willing to rethink, reinvent, and rewire their "value web"</h4>
+		     		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		     		<h5>Demand comes before supply</h5>
+		     		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+		     		<h5>Demand comes before supply</h5>
+		     		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+		     		<h5>Demand comes before supply</h5>
+		     		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+		     		<h5>Demand comes before supply</h5>
+		     		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+		     		<h5>Demand comes before supply</h5>
+		     		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+		     		<h5>Demand comes before supply</h5>
+		     		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+		     		<h5>Demand comes before supply</h5>
+		     		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+		     	</div>
+		     	<div class="commentsContainer">
+		     		<div class="commentBox">
+		     			<span class="post">POST YOUR COMMENTS(0)</span>
+		     			<a class="top" ng-click="scrollTo('wrapper')">Top</a>
+		     			<div class="clear">
+		     			</div>
+		     			<div class="userComments" ng-repeat="comm in userComments track by $index">
+		     				<div class="col-xs-1"></div>
+  							<div class="col-xs-11 clearPadding comment"><span>{{comm}}</span></div>
+		     			</div>
+		     			<div class="row commentUI">
+  							<div class="col-xs-1"><img class="person" src="images/person.png" alt="person"/></div>
+  							<div class="col-xs-11"><textarea class="form-control" rows="3" ng-model="user.comment"></textarea></div>
+						</div>
+						<div class="row commentUI">
+  							<div class="col-xs-1"></div>
+  							<div class="col-xs-11"><a class="postComment" href="" ng-click="postComment()">Post Comments</a></div>
+						</div>
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+	    <art-footer></art-footer>
+    </div>

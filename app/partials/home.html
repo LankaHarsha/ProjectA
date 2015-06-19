@@ -1,0 +1,50 @@
+
+<div class="container-fluid container_view1">
+	<div class="row view1_row" ng-controller="homeController">
+		<div class="view1_search">
+			<input type="search">
+			<a href="javascript:void(0)"><img src="images/bookmarkband-70-100.png" class="view1_bookmark" alt="bookmark" title="bookmark"></a>
+		</div>
+		<div class="col-sm-8 col-sm-offset-1" ng-class="{view1_main:active===1}">
+			<div class="logo">
+				<a href="#/view1"><img src="images/cts-logo.png" alt="logo" title="logo" class="img-responsive"/></a>
+			</div>
+			
+			<h1 class="h1_view1">PERSPECTIVES</h1>
+			<p class="subhead_view1">Last Updated on: 10July, 2014</p>
+			
+			<div class="view1_carousel_container">
+				<slider></slider>
+			</div>	
+		</div>
+		
+		<div class="col-sm-3 view1_sidebar"  ng-class="{view1_active:active===1}">
+			<div ng-class="{view1_active_wrapper:active===1}">
+				<div class="view1_sidebar_heading">
+					<h3>CURRENT ARTICLE<h3>	
+				</div>
+				<p class="view1_sidebar_article_number">< {{number["limit"]}}/15 ><input type="button" id="view1_all"  value="All" ng-click="lol();"></p>
+				
+				<div ng-repeat=" article in articles | limitTo: number.limit " ng-class="{view1_repeat:active===1}">
+					
+					
+					<div class="view1_sidebar_wrapper" ng-class="{view1_sidebar_wrapper_active:active===1}" >
+						<div class="view_article_image_common">
+							<img ng-src={{article["ArticleHomeImageURL"]}} alt="articleimage" title="articleimage" ng-click="loadArticleContent(article)">
+						</div>
+						<div class="view_article_dept_common">
+							<a href="javascript:void(0)" class="view1_dept1_small"></a>
+							<a href="javascript:void(0)" class="view1_dept2_small"></a>
+						</div>
+						<div class="clear"></div>
+						<p class="view1_sidebar_article_description" ng-bind-html="article['ArticleCaption']|keepDots:100"  ng-click="loadArticleContent(article)"></p>
+						<p class="view1_sidebar_article_author" ng-click="loadArticleContent(article)">{{article["Themes"]}}</p>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<art-footer></art-footer>
+</div>	
+
